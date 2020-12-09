@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-za" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Shane Kolkoto</title>
+
+</head>
+
+<body>
+<div id="page">
+<link rel="stylesheet" href="styling.css">
+<!--Side bar-->
+<div id="sidebar">
+	<img src="swegga.jpg" alt="swegga" style="height: 350px; width: 150px;">
+</div>
+<!--Banner-->
+<div id="banner">
+	<img src="delivery.gif" alt="banner" style="height: 85px; width: 300px;">
+</div>
+<!--Navigation-->
+<div id="navigation">
+	<img src="links.gif" alt="links" usemap="#myLinks" style="width: 560px; height: 56px;">
+	<map name="myLinks">
+		<area target="" alt="" title="" href="order.html" coords="0,5,96,37" shape="rect">
+		<area target="" alt="" title="" href="Services.html" coords="102,5,193,38" shape="rect">
+		<area target="" alt="" title="" href="Products.html" coords="203,6,302,38" shape="rect">
+		<area target="" alt="" title="" href="Order_status.html" coords="307,6,439,37" shape="rect">
+		<area target="" alt="" title="" href="Contact_us.html" coords="448,6,557,36" shape="rect">
+	</map>
+</div>
+
+	<div id="main">
+		<form action="orders">
+			<table>
+				<caption>Product Summary</caption>
+				<!--Headings-->
+				<th>Descriptions</th>
+				<th>Sizes</th>
+				<th>Colour</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+
+				<!--Female-->
+				<tr>
+					<td>
+						<a href="female_ski.html"> Female Ski Jackets</a>
+					</td>
+					<!--Size-->
+					<td>
+					<select name="size" id="">
+						<option value="1">Small</option>
+						<option value="2">Medium</option>
+						<option value="3">Large</option>
+					</select>
+					</td>
+					<!--Colour-->
+					<td>
+						<select name="colour" id="">
+							<option value="1">Red</option>
+							<option value="2">Pink</option>
+							<option value="3">Black</option>
+						</select>
+					</td>
+					<!--Price-->
+					<td>
+						150.95
+					</td>
+					<!--text area-->
+					<td>
+						<input type="text" name="QtyF" id="QtyF" style="width: 85px;" >
+					</td>
+					<!--Total-->
+					<td id="TotalF"  style="width: 60px;">
+						<p></p>
+					</td>
+				</tr>
+
+				<!--Male-->
+				<tr>
+					<td>
+						<a href="male_ski.html"> Male Ski Jackets</a>
+					</td>
+					<!--Size-->
+					<td>
+						<select name="size" id="">
+							<option value="1">Small</option>
+							<option value="2">Medium</option>
+							<option value="3">Large</option>
+						</select>
+					</td>
+					<!--Colour-->
+					<td>
+						<select name="colour" id="">
+							<option value="1">Red</option>
+							<option value="2">Blue</option>
+							<option value="3">White</option>
+						</select>
+					</td>
+					<!--Price-->
+					<td>
+						180.95
+					</td>
+					<!--text area-->
+					<td>
+						<input type="text" name="QtyM" id="QtyM" style="width: 85px;" >
+					</td>
+					<!--Total-->
+					<td id="TotalM" style="width: 60px;">
+						<p></p>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						Click to confirm and process your order
+					</td>
+					<!--Button-->
+					<td>
+						<button type="button" style="width: 88px;" onclick="getGrandTotal()">
+							Total Price
+						</button>
+					</td>
+					<!--Grand Total Display-->
+					<td id="grandTotal"  style="width: 60px;">
+
+					</td>
+				</tr>
+			</table>			
+		</form>
+		<div id="footer" class="copyright">
+			<p>
+				© 2020 Swegga Fashion – SHANE KOLKOTO
+			</p>
+		</div>
+		<script>
+			// Getting the references to the HTML elements for the prices
+			let qtyBoxA = document.getElementById('QtyF');
+			let qtyBoxB = document.getElementById('QtyM');
+
+			let totBoxA = document.getElementById('TotalF');
+			let totBoxB = document.getElementById('TotalM');
+
+			let grandTot = document.getElementById('grandTotal');
+						
+			// Will hold the grand total
+			let gt = null; 
+
+			function calc() {
+				let priceA = 150.95;
+				let priceB = 180.95;
+				gt = 0; 
+
+				// Convert the values in the quantity textboxes to numbers.
+				let qtyA = parseInt(qtyBoxA.value, 10);
+				let qtyB = parseInt(qtyBoxB.value, 10);
+				
+
+				// Just place the answer in an element as its text
+				if (qtyA) { totBoxA.textContent = qtyA * priceA; gt += +totBoxA.textContent; }
+				if (qtyB) { totBoxB.textContent = qtyB * priceB; gt += +totBoxB.textContent; }
+				grandTot.textContent = gt.toFixed(2); 				
+			}
+
+			function getGrandTotal(){
+				calc();    
+			}
+		</script>
+	</div>
+	
+</div>
+</body>
+</html>
